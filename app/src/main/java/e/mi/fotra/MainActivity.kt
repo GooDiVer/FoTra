@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         open(TranslatorFragment.getInstance("Translator"))
     }
     private fun openForum() {
-        
+
     }
     private fun openProfile() {}
 
