@@ -1,53 +1,48 @@
-package e.mi.fotra
+package e.mi.FoTra
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var router: MainRouter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        openTranslator()
+//        setSupportActionBar(toolbar)
+
+        router = if (resources.getBoolean(R.bool.isTablet)) {
+            MainRouterTablet(supportFragmentManager)
+        } else {
+            MainRouterPhone(supportFragmentManager)
+        }
+
+        router.openTranslator()
 
         setBottomNavigation()
-
     }
 
     private fun setBottomNavigation() {
-        bottom_navigation.setOnNavigationItemSelectedListener { menuItem ->
+        main_navigation.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.translator -> {
-                    openTranslator()
+                R.id.menu_translator -> {
+                    router.openTranslator()
                     true
                 }
-                R.id.forum -> {
-                    openForum()
+                R.id.menu_forum -> {
+                    router.openForum()
                     true
                 }
-
-                R.id.profile -> {
-                    openProfile()
+                R.id.menu_profile -> {
+                    router.openProfile()
                     true
                 }
                 else -> false
             }
-
         }
     }
 
-    private fun openTranslator() {
-        open(TranslatorFragment.getInstance("Translator"))
-    }
-    private fun openForum() {
-
-    }
-    private fun openProfile() {}
-
-    private fun open(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().replace(R.id.main_container, fragment).commit()
-    }
 }

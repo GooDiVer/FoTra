@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">FoTra</string>
+
+    <string name="navigation_translator">Переводчик</string>
+    <string name="navigation_forum">Форум</string>
+    <string name="navigation_profile">Профиль</string>
+    <string name="navigation_settings">Настройки</string>
 </resources>

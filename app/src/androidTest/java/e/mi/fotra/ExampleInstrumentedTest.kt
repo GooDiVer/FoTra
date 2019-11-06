@@ -1,4 +1,4 @@
-package e.mi.fotra
+package e.mi.FoTra
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("e.mi.fotra", appContext.packageName)
+        assertEquals("e.mi.kotlin011", appContext.packageName)
     }
 }
