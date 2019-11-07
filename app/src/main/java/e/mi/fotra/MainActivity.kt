@@ -2,7 +2,11 @@ package e.mi.FoTra
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent
+import android.view.View
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_translator.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,10 +26,13 @@ class MainActivity : AppCompatActivity() {
 
         router.openTranslator()
 
+
         setBottomNavigation()
+
     }
 
     private fun setBottomNavigation() {
+
         main_navigation.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.menu_translator -> {
