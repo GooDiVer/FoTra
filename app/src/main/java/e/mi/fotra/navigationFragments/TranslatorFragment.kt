@@ -1,9 +1,15 @@
 package e.mi.FoTra.navigationFragments
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import e.mi.FoTra.R
 import e.mi.FoTra.ViewPagerAdapter
@@ -25,6 +31,14 @@ class TranslatorFragment: Fragment() {
         adapter.addFragment(YandexFragment(),"Google")
         viewPager.adapter = adapter
         tabs.setupWithViewPager(viewPager)
+
+        translate_text.setOnKeyListener { v,keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+                val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(view.windowToken, 0)
+            }
+            false
+        }
     }
 
     companion object {
