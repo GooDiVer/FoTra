@@ -11,7 +11,7 @@
         android:padding="@dimen/middle_space">
 
         <TextView
-            android:id="@+id/translated_text"
+            android:id="@+id/translated_yandex_text"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:gravity="center"

@@ -27,7 +27,6 @@
             android:padding="@dimen/middle_space" />
     </androidx.cardview.widget.CardView>
 
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
