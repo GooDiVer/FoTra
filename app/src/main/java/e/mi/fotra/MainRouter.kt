@@ -1,10 +1,10 @@
-package e.mi.FoTra
+package e.mi.fotra
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import e.mi.FoTra.navigationFragments.ForumFragment
-import e.mi.FoTra.navigationFragments.ProfileFragment
-import e.mi.FoTra.navigationFragments.TranslatorFragment
+import e.mi.fotra.navigationFragments.ForumFragment
+import e.mi.fotra.navigationFragments.ProfileFragment
+import e.mi.fotra.navigationFragments.TranslatorFragment
 
 open class MainRouterPhone(
     private val fragmentManager: FragmentManager

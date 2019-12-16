@@ -1,12 +1,8 @@
-package e.mi.FoTra
+package e.mi.fotra
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.KeyEvent
-import android.view.View
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_translator.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,7 +20,9 @@ class MainActivity : AppCompatActivity() {
             MainRouterPhone(supportFragmentManager)
         }
 
-        router.openTranslator()
+        if (savedInstanceState == null) {
+            router.openTranslator()
+        }
 
 
         setBottomNavigation()
@@ -53,3 +51,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+
+///Users/dimko/StudioProjects/FoTra/app/src/main/java/e/mi/fotra/MainActivity.kt
+//e.mi.fotra.MainActivity
