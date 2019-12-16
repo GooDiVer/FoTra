@@ -2,6 +2,8 @@ package e.mi.fotra.koin
 
 import e.mi.fotra.ViewModel.ChooseLanguageViewModel
 import e.mi.fotra.ViewModel.TranslateViewModel
+import e.mi.fotra.gateway.LanguageGateway
+import e.mi.fotra.gateway.LanguageGatewayImpl
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

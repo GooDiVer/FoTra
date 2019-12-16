@@ -32,7 +32,7 @@ class YandexFragment: Fragment() {
         vMessage = translated_yandex_text
 
         //read about lifeCycle
-        viewModel.message.observe(viewLifecycleOwner, Observer<String> { o -> vMessage.text = o })
+        viewModel.translatedText.observe(viewLifecycleOwner, Observer<String> { o -> vMessage.text = o })
     }
 
     companion object {

@@ -25,7 +25,7 @@ class TranslateViewModel(
 
     //field for translated text
     private val _translatedText = MutableLiveData<String>()
-    val message: LiveData<String>
+    val translatedText: LiveData<String>
         get() = _translatedText
 
     //field for left language-frame
@@ -58,13 +58,18 @@ class TranslateViewModel(
                 response: Response<TranslateResponce>
             ) {
                 val translateResponce = response.body()!!
-                _translatedText.value = translateResponce.text[0]
+                setTranslatedText(translateResponce.text[0])
             }
 
             override fun onFailure(call: Call<TranslateResponce>, t: Throwable) {
                 println(t)
             }
         })
+    }
+
+    fun setTranslatedText(txt: String) {
+        _translatedText.value = txt
+
     }
 
     fun onSourceLanguageChange(language: Language) {
