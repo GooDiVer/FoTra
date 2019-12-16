@@ -1,4 +1,4 @@
-package e.mi.FoTra
+package e.mi.fotra
 
 import org.junit.Test
 

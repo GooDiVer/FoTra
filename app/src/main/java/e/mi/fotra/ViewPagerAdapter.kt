@@ -1,4 +1,4 @@
-package e.mi.FoTra
+package e.mi.fotra
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

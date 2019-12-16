@@ -1,11 +1,11 @@
-package e.mi.FoTra.navigationFragments
+package e.mi.fotra.navigationFragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import e.mi.FoTra.R
+import e.mi.fotra.R
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment: Fragment() {

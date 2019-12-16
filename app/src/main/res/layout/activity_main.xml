@@ -18,8 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         app:menu="@menu/navigation"
-        app:labelVisibilityMode="labeled"
-        >
+        app:labelVisibilityMode="labeled">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
