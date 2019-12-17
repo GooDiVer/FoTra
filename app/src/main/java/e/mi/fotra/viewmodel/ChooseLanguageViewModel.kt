@@ -1,4 +1,4 @@
-package e.mi.fotra.ViewModel
+package e.mi.fotra.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

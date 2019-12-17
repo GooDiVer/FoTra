@@ -1,4 +1,4 @@
-package e.mi.fotra
+package e.mi.fotra.api
 
 import okhttp3.OkHttpClient
 import retrofit2.Converter
@@ -77,5 +77,9 @@ object WebProvider {
 
     fun generateTranslateService(retrofit: Retrofit): TranslateService {
         return retrofit.create(TranslateService::class.java)
+    }
+
+    fun generateForumService(retrofit: Retrofit): ForumService {
+        return retrofit.create(ForumService::class.java)
     }
 }

@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import e.mi.fotra.R
-import e.mi.fotra.ViewModel.TranslateViewModel
+import e.mi.fotra.viewmodel.TranslateViewModel
 import kotlinx.android.synthetic.main.fragment_yandex.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -36,7 +36,6 @@ class YandexFragment: Fragment() {
     }
 
     companion object {
-
         fun getInstance() = YandexFragment()
     }
 }

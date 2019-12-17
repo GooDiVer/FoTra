@@ -8,7 +8,7 @@ class LanguageGatewayImpl : LanguageGateway {
         Language("en", "Английский"),
         Language("de", "Немецкий"),
         Language("fr", "Французский"),
-        Language("ch", "Китайский"),
+        Language("zh", "Китайский"),
         Language("es", "Испанский"),
         Language("bn", "Бенгальский")
     )

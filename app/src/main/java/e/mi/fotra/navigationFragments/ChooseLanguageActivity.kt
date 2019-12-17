@@ -1,4 +1,4 @@
-package e.mi.fotra
+package e.mi.fotra.navigationFragments
 
 import android.app.Activity
 import android.content.Intent
@@ -13,7 +13,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import e.mi.fotra.ViewModel.ChooseLanguageViewModel
+import e.mi.fotra.R
+import e.mi.fotra.viewmodel.ChooseLanguageViewModel
 import e.mi.fotra.dataclasses.Language
 import kotlinx.android.synthetic.main.activity_languages.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -28,11 +29,14 @@ class ChooseLanguageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_languages)
 
-        adapter = LanguageAdapter(object : LanguageAdapter.Listener {
-            override fun onLanguageClick(language: Language) {
-                onLanguageItemClick(language)
-            }
-        })
+        adapter =
+            LanguageAdapter(
+                object :
+                    LanguageAdapter.Listener {
+                    override fun onLanguageClick(language: Language) {
+                        onLanguageItemClick(language)
+                    }
+                })
 
         recycler.layoutManager = LinearLayoutManager(this).apply {
             orientation = LinearLayoutManager.VERTICAL
@@ -54,7 +58,9 @@ class ChooseLanguageActivity : AppCompatActivity() {
 
     private class LanguageAdapter(
         private val listener: Listener
-    ) : ListAdapter<Language, LanguageAdapter.LanguageViewHolder>(LanguageDiffUtilCallback) {
+    ) : ListAdapter<Language, LanguageAdapter.LanguageViewHolder>(
+        LanguageDiffUtilCallback
+    ) {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LanguageViewHolder {
             return LanguageViewHolder(

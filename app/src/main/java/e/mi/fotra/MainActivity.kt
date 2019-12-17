@@ -2,7 +2,7 @@ package e.mi.fotra
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import e.mi.fotra.ViewModel.TranslateViewModel
+import e.mi.fotra.viewmodel.TranslateViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

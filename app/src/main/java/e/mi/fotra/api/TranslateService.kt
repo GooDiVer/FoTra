@@ -1,4 +1,4 @@
-package e.mi.fotra
+package e.mi.fotra.api
 
 import e.mi.fotra.dataclasses.TranslateResponce
 
