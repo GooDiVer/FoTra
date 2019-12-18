@@ -10,6 +10,7 @@ import e.mi.fotra.gateway.ForumGateway
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
 
 
 class ForumViewModel(private val forumGateway: ForumGateway): ViewModel() {
@@ -18,6 +19,18 @@ class ForumViewModel(private val forumGateway: ForumGateway): ViewModel() {
         get() = _listOfQuestions
 
     fun onListOfQuestionLoaded() {
-        _listOfQuestions.value = forumGateway.getAllPost()
+        forumGateway.getAllPost(object : PostCallback {
+            override fun onSuccess(value: List<Question>) {
+                _listOfQuestions.value = value
+            }
+
+            override fun onError(e: Exception) {
+            }
+        })
+    }
+
+    interface PostCallback {
+        fun onSuccess(value: List<Question>)
+        fun onError(e: Exception)
     }
 }

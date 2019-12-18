@@ -3,6 +3,7 @@ package e.mi.fotra.gateway
 import e.mi.fotra.api.ForumService
 import e.mi.fotra.dataclasses.forum.Question
 import e.mi.fotra.dataclasses.forum.QuestionList
+import e.mi.fotra.viewmodel.ForumViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -10,7 +11,7 @@ import retrofit2.Response
 class ForumGatewayImpl(val forumService: ForumService) : ForumGateway {
     var questions: List<Question>? = null
 
-    override fun getAllPost(): List<Question>? {
+    override fun getAllPost(postCallback: ForumViewModel.PostCallback) {
 
         val call = forumService.getAllPosts()
         println(call)
@@ -20,10 +21,9 @@ class ForumGatewayImpl(val forumService: ForumService) : ForumGateway {
             }
 
             override fun onResponse(call: Call<List<Question>>, response: Response<List<Question>>) {
-                questions = response.body()
+                postCallback.onSuccess(response.body()!!)
             }
 
         })
-        return questions
     }
 }
