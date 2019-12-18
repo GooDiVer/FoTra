@@ -8,8 +8,8 @@ import retrofit2.http.Headers
 
 interface ForumService {
 
-    @Headers("Authorization: Bearer_" +
-            "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb29keSIsInJvbGVzIjoiVVNFUiIsImlhdCI6MTU3NjYxNzE1MiwiZXhwIjoxNTc5MjA5MTUyfQ.hmBH1uKP6Rt02vGFpZOcURxYGwB7z2ibjHcSzw1gMk0")
+//    @Headers("Authorization: Bearer_" +
+//            "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb29keSIsInJvbGVzIjoiVVNFUiIsImlhdCI6MTU3NjY5NDAxNywiZXhwIjoxNTc5Mjg2MDE3fQ.q5mCmgHF7Vw64uBSsd-kaQGcMXEIuqe7FPQ2SjTdtyo")
     @GET("/v/auth/forum/allposts")
     fun getAllPosts(): Call<List<Question>>
 }

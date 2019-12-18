@@ -1,5 +1,8 @@
 package e.mi.fotra.api
 
+import okhttp3.Credentials
+import okhttp3.Headers
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Converter
 import retrofit2.Retrofit
@@ -13,6 +16,7 @@ import javax.net.ssl.X509TrustManager
 object WebProvider {
 
     private var baseUrl = "https://fotra-server-app.herokuapp.com"
+    private val token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb29keSIsInJvbGVzIjoiVVNFUiIsImlhdCI6MTU3NjYxNzE1MiwiZXhwIjoxNTc5MjA5MTUyfQ.hmBH1uKP6Rt02vGFpZOcURxYGwB7z2ibjHcSzw1gMk0"
 
     fun generateOkHttpClient(): OkHttpClient {
 
@@ -58,6 +62,16 @@ object WebProvider {
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
 
+        val headerAuthorizationInterceptor = Interceptor { chain ->
+            var request = chain.request()
+            val headers: Headers =
+                request.headers().newBuilder().add("Authorization", "Bearer_" + token).build()
+            request = request.newBuilder().headers(headers).build()
+            chain.proceed(request)
+        }
+
+
+        okHttpBuilder.addInterceptor(headerAuthorizationInterceptor)
         okHttpBuilder.sslSocketFactory(sslSocketFactory, trustAllCerts[0] as X509TrustManager)
         okHttpBuilder.hostnameVerifier { _, _ -> true }
 
