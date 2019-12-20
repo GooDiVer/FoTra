@@ -94,6 +94,7 @@ class TranslatorFragment : Fragment() {
         if (resultCode == Activity.RESULT_OK) {
             val language: Language? = data?.getParcelableExtra(ChooseLanguageActivity.ARG_RESULT)
 
+            //Why do we need let
             language?.let {
                 when (requestCode) {
                     REQUEST_CODE_FROM -> model.onSourceLanguageChange(it)

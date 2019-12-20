@@ -25,10 +25,6 @@ class ProfileFragment: Fragment() {
 
         fun getInstance(title: String): ProfileFragment =
         ProfileFragment().apply {
-//            val bundle = Bundle()
-//            bundle.putString(ARG, title)
-//            arguments = bundle
-
             arguments = Bundle().apply {
                 putString(ARG, title)
             }

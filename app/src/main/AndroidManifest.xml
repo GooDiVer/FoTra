@@ -14,6 +14,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".navigationFragments.ChooseLanguageActivity">
         </activity>
+        <activity android:name=".navigationFragments.AddPostActivity"/>
         <activity android:name="e.mi.fotra.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

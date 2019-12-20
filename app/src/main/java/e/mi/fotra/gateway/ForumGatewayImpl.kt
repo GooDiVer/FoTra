@@ -2,7 +2,6 @@ package e.mi.fotra.gateway
 
 import e.mi.fotra.api.ForumService
 import e.mi.fotra.dataclasses.forum.Question
-import e.mi.fotra.dataclasses.forum.QuestionList
 import e.mi.fotra.viewmodel.ForumViewModel
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,4 +25,5 @@ class ForumGatewayImpl(val forumService: ForumService) : ForumGateway {
 
         })
     }
+
 }

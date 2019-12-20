@@ -1,15 +1,15 @@
 package e.mi.fotra.api
 
 import e.mi.fotra.dataclasses.forum.Question
-import e.mi.fotra.dataclasses.forum.QuestionList
+import e.mi.fotra.dataclasses.forum.QuestionResponce
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Headers
+import retrofit2.http.*
 
 interface ForumService {
 
-//    @Headers("Authorization: Bearer_" +
-//            "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb29keSIsInJvbGVzIjoiVVNFUiIsImlhdCI6MTU3NjY5NDAxNywiZXhwIjoxNTc5Mjg2MDE3fQ.q5mCmgHF7Vw64uBSsd-kaQGcMXEIuqe7FPQ2SjTdtyo")
     @GET("/v/auth/forum/allposts")
     fun getAllPosts(): Call<List<Question>>
+
+    @POST("/v/auth/forum/addpost")
+    fun addPost(@Body body: QuestionResponce): Call<QuestionResponce>
 }
