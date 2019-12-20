@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="6"
+                android:padding="8dp"
+                android:background="@color/colorAccent">
+
+                <ImageView
+                    android:id="@+id/answerImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ratingImage"
+                    app:srcCompat="@drawable/ic_font_download_black_24dp" />
+
+                <ImageView
+                    android:id="@+id/ratingImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/answerImage"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_arrow_upward_black_24dp" />
+
+                <TextView
+                    android:id="@+id/ratingText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/answerImage"
+                    app:layout_constraintTop_toBottomOf="@+id/answerText" />
+
+                <TextView
+                    android:id="@+id/answerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    app:layout_constraintBottom_toTopOf="@+id/ratingText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ratingImage"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingTop="8dp"
+                android:paddingRight="8dp"
+                android:paddingLeft="8dp"
+                >
+
+                <TextView
+                    android:id="@+id/questionTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:height="50dp"
+                    tools:text="Как перевести 'London is the capital of Great Britain?'" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="bottom">
+
+                    <TextView
+                        android:id="@+id/nameText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        tools:text="User"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/howLongText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        tools:text="1 час назад"
+                        android:textSize="10sp"
+                        android:width="180dp"
+                        android:gravity="right" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

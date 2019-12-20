@@ -2,11 +2,14 @@ package e.mi.fotra
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import e.mi.fotra.viewmodel.TranslateViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var router: MainRouter
+    private val model: TranslateViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +35,9 @@ class MainActivity : AppCompatActivity() {
     private fun setBottomNavigation() {
 
         main_navigation.setOnNavigationItemSelectedListener { menuItem ->
+
+            model.setTranslatedText("")
+
             when (menuItem.itemId) {
                 R.id.menu_translator -> {
                     router.openTranslator()
@@ -51,6 +57,3 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
-
-///Users/dimko/StudioProjects/FoTra/app/src/main/java/e/mi/fotra/MainActivity.kt
-//e.mi.fotra.MainActivity

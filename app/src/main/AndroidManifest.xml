@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ChooseLanguageActivity">
+        <activity android:name=".navigationFragments.ChooseLanguageActivity">
         </activity>
         <activity android:name="e.mi.fotra.MainActivity">
             <intent-filter>

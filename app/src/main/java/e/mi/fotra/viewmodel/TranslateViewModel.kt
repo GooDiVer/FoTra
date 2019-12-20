@@ -1,16 +1,15 @@
-package e.mi.fotra.ViewModel
+package e.mi.fotra.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import e.mi.fotra.TranslateService
+import e.mi.fotra.api.TranslateService
 import e.mi.fotra.dataclasses.Language
 import e.mi.fotra.dataclasses.TranslateResponce
 import e.mi.fotra.gateway.LanguageGateway
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.sql.Struct
 
 class TranslateViewModel(
     private val translateService: TranslateService,
@@ -25,7 +24,7 @@ class TranslateViewModel(
 
     //field for translated text
     private val _translatedText = MutableLiveData<String>()
-    val message: LiveData<String>
+    val translatedText: LiveData<String>
         get() = _translatedText
 
     //field for left language-frame
@@ -58,13 +57,18 @@ class TranslateViewModel(
                 response: Response<TranslateResponce>
             ) {
                 val translateResponce = response.body()!!
-                _translatedText.value = translateResponce.text[0]
+                setTranslatedText(translateResponce.text[0])
             }
 
             override fun onFailure(call: Call<TranslateResponce>, t: Throwable) {
                 println(t)
             }
         })
+    }
+
+    fun setTranslatedText(txt: String) {
+        _translatedText.value = txt
+
     }
 
     fun onSourceLanguageChange(language: Language) {

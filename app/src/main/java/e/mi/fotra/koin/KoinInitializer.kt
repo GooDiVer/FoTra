@@ -17,7 +17,8 @@ object KoinInitializer {
                     ViewModelModule.module,
                     ApiModule.module,
                     MoshiModule.module,
-                    LanguageModule.module
+                    LanguageModule.module,
+                    ForumModule.module
                 )
             )
         }

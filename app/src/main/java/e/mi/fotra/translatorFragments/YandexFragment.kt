@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import e.mi.fotra.R
-import e.mi.fotra.ViewModel.TranslateViewModel
+import e.mi.fotra.viewmodel.TranslateViewModel
 import kotlinx.android.synthetic.main.fragment_yandex.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -32,11 +32,10 @@ class YandexFragment: Fragment() {
         vMessage = translated_yandex_text
 
         //read about lifeCycle
-        viewModel.message.observe(viewLifecycleOwner, Observer<String> { o -> vMessage.text = o })
+        viewModel.translatedText.observe(viewLifecycleOwner, Observer<String> { o -> vMessage.text = o })
     }
 
     companion object {
-
         fun getInstance() = YandexFragment()
     }
 }

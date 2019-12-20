@@ -11,10 +11,9 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import e.mi.fotra.ChooseLanguageActivity
 import e.mi.fotra.R
-import e.mi.fotra.ViewModel.TranslateViewModel
-import e.mi.fotra.ViewPagerAdapter
+import e.mi.fotra.viewmodel.TranslateViewModel
+import e.mi.fotra.adapter.ViewPagerAdapter
 import e.mi.fotra.dataclasses.Language
 import e.mi.fotra.translatorFragments.YandexFragment
 import kotlinx.android.synthetic.main.fragment_translator.*

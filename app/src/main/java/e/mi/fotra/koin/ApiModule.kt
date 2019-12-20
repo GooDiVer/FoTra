@@ -1,8 +1,9 @@
 package e.mi.fotra.koin
 
 import com.squareup.moshi.Moshi
-import e.mi.fotra.TranslateService
-import e.mi.fotra.WebProvider
+import e.mi.fotra.api.TranslateService
+import e.mi.fotra.api.WebProvider
+import e.mi.fotra.api.ForumService
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Converter
@@ -16,5 +17,6 @@ object ApiModule {
         single<OkHttpClient> { WebProvider.generateOkHttpClient() }
         single<Retrofit> { WebProvider.generateRetrofit(httpClient = get(), jsonConvertedFactory = get()) }
         single<TranslateService> { WebProvider.generateTranslateService(retrofit = get()) }
+        single<ForumService> { WebProvider.generateForumService(retrofit = get())}
     }
 }
