@@ -9,4 +9,5 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:textSize="14sp"
-    tools:text="Русский" />
+    tools:text="Русский"
+    android:layout_marginBottom="1dp"/>

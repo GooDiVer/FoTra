@@ -11,6 +11,6 @@ object ViewModelModule {
     val module = module {
         viewModel<TranslateViewModel> { TranslateViewModel(translateService = get(), languageGateway = get()) }
         viewModel<ChooseLanguageViewModel> { ChooseLanguageViewModel(languageGateway = get()) }
-        viewModel<ForumViewModel> { ForumViewModel(forumGateway = get(), forumService = get())}
+        viewModel<ForumViewModel> { ForumViewModel(forumGateway = get())}
     }
 }

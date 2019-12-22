@@ -3,23 +3,34 @@ package e.mi.fotra.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import e.mi.fotra.api.ForumService
+import e.mi.fotra.UniversalCallback
 import e.mi.fotra.dataclasses.forum.Question
-import e.mi.fotra.dataclasses.forum.QuestionResponce
 import e.mi.fotra.gateway.ForumGateway
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import java.lang.Exception
 
 
-class ForumViewModel(private val forumGateway: ForumGateway, private  val forumService: ForumService): ViewModel() {
+class ForumViewModel(private val forumGateway: ForumGateway): ViewModel() {
     private val _listOfQuestions = MutableLiveData<List<Question>>()
     val listOfQuestions: LiveData<List<Question>>
         get() = _listOfQuestions
 
+    init {
+        loadPosts()
+    }
 
-    fun onListOfQuestionLoaded() {
+
+    fun onPostAdded(questionTitle: String, questionBody: String) {
+        forumGateway.addPost(questionTitle, questionBody, object : UniversalCallback<Unit>{
+            override fun onSuccess(value: Unit) {
+                loadPosts()
+            }
+
+            override fun onFailure(e: Throwable?) {
+                e?.printStackTrace()
+            }
+        })
+    }
+
+    private fun loadPosts() {
         forumGateway.getAllPost(object : PostCallback {
             override fun onSuccess(value: List<Question>) {
                 _listOfQuestions.value = value
@@ -29,23 +40,6 @@ class ForumViewModel(private val forumGateway: ForumGateway, private  val forumS
             }
         })
     }
-
-    fun onPostAdded(question: QuestionResponce) {
-        val  call = forumService.addPost(question)
-        call.enqueue( object : Callback<QuestionResponce> {
-            override fun onFailure(call: Call<QuestionResponce>, t: Throwable) {
-
-            }
-
-            override fun onResponse(call: Call<QuestionResponce>, response: Response<QuestionResponce>) {
-                onListOfQuestionLoaded()
-            }
-
-        })
-
-
-    }
-
 
     interface PostCallback {
         fun onSuccess(value: List<Question>)

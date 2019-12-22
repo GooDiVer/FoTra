@@ -1,15 +1,8 @@
 package e.mi.fotra.dataclasses.forum
+import androidx.annotation.Nullable
 import com.squareup.moshi.JsonClass
 
 import com.squareup.moshi.Json
-
-
-
-@JsonClass(generateAdapter = true)
-data class QuestionList(
-    @Json(name = "forumList")
-    val questionList: List<Question>
-)
 
 @JsonClass(generateAdapter = true)
 data class Question(
@@ -21,8 +14,6 @@ data class Question(
     val date: String,
     @Json(name = "head")
     val head: String,
-    @Json(name = "id_post")
-    val idPost: String,
     @Json(name = "likes")
     val likes: Int,
     @Json(name = "name")
@@ -30,5 +21,19 @@ data class Question(
     @Json(name = "open_close")
     val openClose: Boolean,
     @Json(name = "topic_var")
-    val topicVar: String
+    val topicVar: String,
+    @Json(name = "id_post")
+    val idPost: String
+)
+
+@JsonClass(generateAdapter = true)
+data class QuestionRequest(
+    @Json(name = "head")
+    val head: String,
+    @Json(name = "body")
+    val body: String,
+    @Json(name = "username")
+    val name: String,
+    @Json(name = "langID")
+    val idPost: String
 )

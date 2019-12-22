@@ -36,8 +36,6 @@ class MainActivity : AppCompatActivity() {
 
         main_navigation.setOnNavigationItemSelectedListener { menuItem ->
 
-            model.setTranslatedText("")
-
             when (menuItem.itemId) {
                 R.id.menu_translator -> {
                     router.openTranslator()
