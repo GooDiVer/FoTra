@@ -38,6 +38,7 @@ class TranslateViewModel(
         get() = _targetLanguage
 
     init {
+        _translatedText.value = ""
         _sourceLanguage.value = languageGateway.getDefaultSourceLanguage()
         _targetLanguage.value = languageGateway.getDefaultTargetLanguage()
     }
@@ -66,16 +67,15 @@ class TranslateViewModel(
         })
     }
 
-    fun setTranslatedText(txt: String) {
-        _translatedText.value = txt
-
-    }
-
     fun onSourceLanguageChange(language: Language) {
         _sourceLanguage.value = language
     }
 
     fun onTargetLanguageChange(language: Language) {
         _targetLanguage.value = language
+    }
+
+    private fun setTranslatedText(txt: String) {
+        _translatedText.value = txt
     }
 }

@@ -1,9 +1,6 @@
 package e.mi.fotra.api
 
-import okhttp3.Credentials
-import okhttp3.Headers
-import okhttp3.Interceptor
-import okhttp3.OkHttpClient
+import okhttp3.*
 import retrofit2.Converter
 import retrofit2.Retrofit
 import java.security.KeyManagementException
@@ -65,7 +62,9 @@ object WebProvider {
         val headerAuthorizationInterceptor = Interceptor { chain ->
             var request = chain.request()
             val headers: Headers =
-                request.headers().newBuilder().add("Authorization", "Bearer_" + token).build()
+                request.headers().newBuilder().add("Authorization", "Bearer_" + token)
+                    .add("Content-Type", "application/json")
+                    .build()
             request = request.newBuilder().headers(headers).build()
             chain.proceed(request)
         }

@@ -58,4 +58,7 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
+    //round imageview
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+
 }

@@ -3,14 +3,9 @@ package e.mi.fotra.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import e.mi.fotra.api.ForumService
+import e.mi.fotra.UniversalCallback
 import e.mi.fotra.dataclasses.forum.Question
-import e.mi.fotra.dataclasses.forum.QuestionList
 import e.mi.fotra.gateway.ForumGateway
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import java.lang.Exception
 
 
 class ForumViewModel(private val forumGateway: ForumGateway): ViewModel() {
@@ -18,7 +13,24 @@ class ForumViewModel(private val forumGateway: ForumGateway): ViewModel() {
     val listOfQuestions: LiveData<List<Question>>
         get() = _listOfQuestions
 
-    fun onListOfQuestionLoaded() {
+    init {
+        loadPosts()
+    }
+
+
+    fun onPostAdded(questionTitle: String, questionBody: String) {
+        forumGateway.addPost(questionTitle, questionBody, object : UniversalCallback<Unit>{
+            override fun onSuccess(value: Unit) {
+                loadPosts()
+            }
+
+            override fun onFailure(e: Throwable?) {
+                e?.printStackTrace()
+            }
+        })
+    }
+
+    private fun loadPosts() {
         forumGateway.getAllPost(object : PostCallback {
             override fun onSuccess(value: List<Question>) {
                 _listOfQuestions.value = value

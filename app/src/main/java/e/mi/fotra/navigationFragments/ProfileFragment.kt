@@ -18,17 +18,13 @@ class ProfileFragment: Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        profile_text.text = arguments?.getString(ARG)
+//        profile_text.text = arguments?.getString(ARG)
     }
     companion object {
         private const val ARG = "ARG_TITLE"
 
         fun getInstance(title: String): ProfileFragment =
         ProfileFragment().apply {
-//            val bundle = Bundle()
-//            bundle.putString(ARG, title)
-//            arguments = bundle
-
             arguments = Bundle().apply {
                 putString(ARG, title)
             }

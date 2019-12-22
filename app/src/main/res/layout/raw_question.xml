@@ -76,6 +76,7 @@
                     android:id="@+id/questionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
                     android:height="50dp"
                     tools:text="Как перевести 'London is the capital of Great Britain?'" />
 
@@ -90,8 +91,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        tools:text="User"
-                        android:textSize="12sp" />
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        tools:text="User" />
 
                     <TextView
                         android:id="@+id/howLongText"

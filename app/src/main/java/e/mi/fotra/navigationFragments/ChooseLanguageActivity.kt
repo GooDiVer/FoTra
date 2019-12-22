@@ -22,21 +22,18 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class ChooseLanguageActivity : AppCompatActivity() {
 
     private val model: ChooseLanguageViewModel by viewModel()
-    private lateinit var adapter: LanguageAdapter
 
     override
     fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_languages)
 
-        adapter =
-            LanguageAdapter(
-                object :
-                    LanguageAdapter.Listener {
-                    override fun onLanguageClick(language: Language) {
-                        onLanguageItemClick(language)
-                    }
-                })
+        var adapter = LanguageAdapter(
+            object : LanguageAdapter.Listener {
+                override fun onLanguageClick(language: Language) {
+                    onLanguageItemClick(language)
+                }
+            })
 
         recycler.layoutManager = LinearLayoutManager(this).apply {
             orientation = LinearLayoutManager.VERTICAL
@@ -58,9 +55,7 @@ class ChooseLanguageActivity : AppCompatActivity() {
 
     private class LanguageAdapter(
         private val listener: Listener
-    ) : ListAdapter<Language, LanguageAdapter.LanguageViewHolder>(
-        LanguageDiffUtilCallback
-    ) {
+    ) : ListAdapter<Language, LanguageAdapter.LanguageViewHolder>(LanguageDiffUtilCallback) {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LanguageViewHolder {
             return LanguageViewHolder(

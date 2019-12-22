@@ -10,7 +10,27 @@ class LanguageGatewayImpl : LanguageGateway {
         Language("fr", "Французский"),
         Language("zh", "Китайский"),
         Language("es", "Испанский"),
-        Language("bn", "Бенгальский")
+        Language("tt", "Татарский"),
+        Language("pt", "Португальский"),
+        Language("hr", "Хорватский"),
+        Language("hy", "Армянский"),
+        Language("uk", "Украинский"),
+        Language("hi", "Хинди"),
+        Language("lo", "Лаосский"),
+        Language("lt", "Литовский"),
+        Language("id", "Индонезийский"),
+        Language("mi", "Маори"),
+        Language("ur", "Урду"),
+        Language("mk", "Македонский"),
+        Language("pap", "Папьяменто"),
+        Language("ml", "Малаялам"),
+        Language("eo", "Эсперанто"),
+        Language("is", "Исландский"),
+        Language("af", "Африканас"),
+        Language("am", "Амхарский"),
+        Language("my", "Бирманский"),
+        Language("et", "Эстонский"),
+        Language("eu", "Баскский")
     )
 
     override fun getAvailableLanguages(): List<Language> {
