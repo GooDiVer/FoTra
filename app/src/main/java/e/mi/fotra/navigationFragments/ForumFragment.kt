@@ -6,20 +6,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import e.mi.fotra.R
 import e.mi.fotra.adapter.QuestionAdapter
 import e.mi.fotra.dataclasses.forum.Question
-import e.mi.fotra.dataclasses.forum.QuestionRequest
 import e.mi.fotra.viewmodel.ForumViewModel
 import kotlinx.android.synthetic.main.fragment_forum.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import java.lang.IllegalArgumentException
 
 class ForumFragment : Fragment() {
-    private val adapter: QuestionAdapter = QuestionAdapter()
+
     private val model: ForumViewModel by sharedViewModel()
 
     override fun onCreateView(
@@ -34,6 +34,14 @@ class ForumFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 //        forum_text.text = arguments?.getString(ARG)
+
+        val adapter = QuestionAdapter(listener = object :
+            QuestionAdapter.Listener {
+
+            override fun onQuestionClick(question: Question) {
+                startActivity(QuestionPageActivity.getIntent(requireContext(), question))
+            }
+        })
 
         //some context
         forumRecycler.layoutManager = LinearLayoutManager(activity).apply {
@@ -73,6 +81,7 @@ class ForumFragment : Fragment() {
     private fun sendPost(questionBody: String, questionTitle: String) {
         model.onPostAdded(questionTitle, questionBody)
     }
+
 
     companion object {
         private const val ARG = "ARG_TITLE"

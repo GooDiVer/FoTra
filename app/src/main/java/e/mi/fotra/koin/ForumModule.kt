@@ -7,6 +7,6 @@ import org.koin.dsl.module
 
 object ForumModule {
     val module = module {
-        single<ForumGateway> {ForumGatewayImpl(forumService = get())}
+        single<ForumGateway> { ForumGatewayImpl(forumService = get()) }
     }
 }

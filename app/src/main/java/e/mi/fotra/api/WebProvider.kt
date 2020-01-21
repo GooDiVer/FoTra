@@ -13,7 +13,7 @@ import javax.net.ssl.X509TrustManager
 object WebProvider {
 
     private var baseUrl = "https://fotra-server-app.herokuapp.com"
-    private val token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb29keSIsInJvbGVzIjoiVVNFUiIsImlhdCI6MTU3NjYxNzE1MiwiZXhwIjoxNTc5MjA5MTUyfQ.hmBH1uKP6Rt02vGFpZOcURxYGwB7z2ibjHcSzw1gMk0"
+    private val token = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb29keSIsInJvbGVzIjoiVVNFUiIsImlhdCI6MTU3OTYwMjQxNSwiZXhwIjoxNTgyMTk0NDE1fQ.ki6XW3CcINqmuUEuisA0ZAA3hJIq0G_sYz2swcVOAd8"
 
     fun generateOkHttpClient(): OkHttpClient {
 

@@ -1,9 +1,12 @@
 package e.mi.fotra.dataclasses.forum
+import android.os.Parcelable
 import androidx.annotation.Nullable
 import com.squareup.moshi.JsonClass
 
 import com.squareup.moshi.Json
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @JsonClass(generateAdapter = true)
 data class Question(
     @Json(name = "body")
@@ -24,7 +27,7 @@ data class Question(
     val topicVar: String,
     @Json(name = "id_post")
     val idPost: String
-)
+) : Parcelable
 
 @JsonClass(generateAdapter = true)
 data class QuestionRequest(
