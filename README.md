@@ -15,10 +15,10 @@ FoTra *(расшифровывается как Forum-Translator)*
 
 ## Стек технологий
 1. Android Jetpack
-2. MVVM
-3. Koin
-4. DI
-5. Android support library
+2. Android support library
+3. MVVM
+4. Koin
+5. DI
 
 ## Скриншоты
 - *Окно для перевода*
