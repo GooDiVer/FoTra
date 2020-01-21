@@ -18,6 +18,7 @@ FoTra *(расшифровывается как Forum-Translator)*
 2. MVVM
 3. Koin
 4. DI
+5. Android support library
 
 ## Скриншоты
 - *Окно для перевода*
