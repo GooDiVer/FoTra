@@ -8,16 +8,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import e.mi.fotra.R
-import e.mi.fotra.dataclasses.Language
 import e.mi.fotra.dataclasses.forum.Question
-import e.mi.fotra.viewmodel.ForumViewModel
 import kotlinx.android.synthetic.main.raw_question.view.*
-import org.koin.core.Koin
-import org.koin.core.KoinComponent
-import org.koin.core.inject
 
-class QuestionAdapter(
-) : ListAdapter<Question, QuestionAdapter.QuestionViewHolder>(
+class QuestionAdapter(private val listener: Listener) : ListAdapter<Question, QuestionAdapter.QuestionViewHolder>(
     QuestionDiffUtilCallback
 ) {
 
@@ -27,8 +21,7 @@ class QuestionAdapter(
                 R.layout.raw_question,
                 parent,
                 false
-            )
-        )
+            ), listener)
     }
 
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
@@ -37,7 +30,8 @@ class QuestionAdapter(
 
 
     class QuestionViewHolder(
-        view: View
+        val view: View,
+        private val listener: Listener
     ) : RecyclerView.ViewHolder(view) {
 
         private var questionTitle: TextView = view.questionTitleText
@@ -52,7 +46,16 @@ class QuestionAdapter(
             answers.text = question.comments.toString()
             date.text = question.date
             name.text = question.name
+
+            view.setOnClickListener {
+                listener.onQuestionClick(question)
+            }
+
         }
+    }
+
+    interface Listener {
+        fun onQuestionClick(question: Question)
     }
 
     object QuestionDiffUtilCallback : DiffUtil.ItemCallback<Question>() {
